@@ -2,76 +2,178 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#07070A">
 <title>Benja cumple 10 — River de Corazón</title>
+<meta name="description" content="Benja cumple 10 y te quiere en la cancha. 15 de septiembre, de 17 a 20 hs. Confirmá tu lugar en la tribuna.">
+
+<!-- Preview al compartir por WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Benja cumple 10 — River de Corazón">
+<meta property="og:description" content="15 de septiembre · 17 a 20 hs. ¿Nos acompañás en la tribuna?">
+<meta property="og:image" content="assets/estadio.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/escudo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/escudo.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Big+Shoulders+Display:wght@500;700;800;900&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ============ HERO ============ -->
+<!-- Barra de progreso de scroll -->
+<div class="progress" id="progress" aria-hidden="true"><i></i></div>
+
+<!-- ============================================================
+     TICKER SUPERIOR
+============================================================ -->
+<div class="ticker ticker--top" aria-hidden="true">
+  <div class="ticker__track">
+    <span class="ticker__group">Benja cumple 10 <i>★</i> 15 de septiembre <i>★</i> 17 a 20 hs <i>★</i> River de corazón <i>★</i> No faltes <i>★</i></span>
+    <span class="ticker__group">Benja cumple 10 <i>★</i> 15 de septiembre <i>★</i> 17 a 20 hs <i>★</i> River de corazón <i>★</i> No faltes <i>★</i></span>
+  </div>
+</div>
+
+<!-- ============================================================
+     HERO — Noche en el Monumental
+============================================================ -->
 <section class="hero" id="hero">
-  <div class="hero__bg" style="background-image: url(assets/fondo_river.jpg);"></div>
-  <div class="hero__overlay"></div>
+  <div class="hero__bg" id="hero-bg" aria-hidden="true"></div>
+  <div class="hero__wash" aria-hidden="true"></div>
+  <div class="hero__beams" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="hero__sweep" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="hero__floor" aria-hidden="true"></div>
 
   <div class="hero__content">
-    <img src="assets/te_invito_10.png" alt="Te invito a mi cumple" class="hero__invite">
+    <h1 class="hero__title">
+      <span class="hero__pre">Te invito a mi</span>
+      <span class="hero__word">Cumple</span>
+      <span class="hero__num">10</span>
+      <span class="hero__name">Benja</span>
+    </h1>
+    <p class="hero__date"><span>15</span><i>·</i><span>09</span><i>·</i><span>26</span></p>
   </div>
 
-  <button class="hero__scroll" id="scroll-cue" aria-label="Bajar para ver la invitación">
-    <span></span>
-  </button>
 </section>
 
-<!-- ============ INTRO ============ -->
+<!-- ============================================================
+     TICKER
+============================================================ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span class="ticker__group">Benja cumple 10 <i>★</i> 15 de septiembre <i>★</i> 17 a 20 hs <i>★</i> River de corazón <i>★</i> No faltes <i>★</i></span>
+    <span class="ticker__group">Benja cumple 10 <i>★</i> 15 de septiembre <i>★</i> 17 a 20 hs <i>★</i> River de corazón <i>★</i> No faltes <i>★</i></span>
+  </div>
+</div>
+
+<!-- ============================================================
+     INTRO
+============================================================ -->
 <section class="intro">
-  <img src="assets/jugador_river1.jpg" alt="Jugador de River" class="intro__player intro__player--left">
-
-  <div class="intro__text">
-    <p class="intro__line reveal" data-anim="fade-up">Hay partidos que se juegan en la cancha,</p>
-    <p class="intro__line intro__line--red reveal" data-anim="fade-up">y otros que se festejan con los amigos.</p>
-  </div>
-
-  <img src="assets/jugador_river2.png" alt="Jugador de River" class="intro__player intro__player--right">
+  <p class="intro__line reveal" data-anim="up" style="--i:0">Hay partidos que se juegan</p>
+  <p class="intro__line reveal" data-anim="up" style="--i:1">en la <em>cancha</em>,</p>
+  <p class="intro__line intro__line--red reveal" data-anim="up" style="--i:2">y otros que se festejan</p>
+  <p class="intro__line intro__line--red reveal" data-anim="up" style="--i:3">con los <em>amigos</em>.</p>
 </section>
 
-<!-- ============ CONVOCATORIA ============ -->
+<!-- ============================================================
+     LA CONVOCATORIA
+============================================================ -->
 <section class="info" id="info">
-  <h2 class="info__title reveal" data-anim="fade-up">La convocatoria</h2>
-   <h2 class="info__title reveal" data-anim="fade-up">15/09</h2>
+  <div class="info__head">
+    <p class="kicker reveal" data-anim="up" style="--i:0">Anotá la fecha</p>
+    <h2 class="info__title reveal" data-anim="up" style="--i:1">La convocatoria</h2>
+  </div>
 
+  <div class="info__card reveal" data-anim="up" style="--i:2">
+    <p class="info__day" id="info-day"></p>
 
-  <div class="info__card reveal" data-anim="fade-up">
     <div class="info__countdown" id="countdown">
-      <div class="info__block"><span id="dias">00</span><small>días</small></div>
-      <div class="info__block"><span id="horas">00</span><small>horas</small></div>
-      <div class="info__block"><span id="minutos">00</span><small>min</small></div>
-      <div class="info__block"><span id="segundos">00</span><small>seg</small></div>
+      <div class="cd"><span class="cd__val" id="dias">00</span><small>días</small></div>
+      <div class="cd"><span class="cd__val" id="horas">00</span><small>horas</small></div>
+      <div class="cd"><span class="cd__val" id="minutos">00</span><small>min</small></div>
+      <div class="cd"><span class="cd__val" id="segundos">00</span><small>seg</small></div>
     </div>
 
-    <p class="info__time" id="info-time">HORA</p>
+    <p class="info__time" id="info-time">17 a 20 hs</p>
 
-    <a href="#" id="info-location-btn" class="btn btn--primary" target="_blank" rel="noopener">
-      Ver ubicación en Maps
+    <a href="#" id="info-location-btn" class="btn btn--ghost" target="_blank" rel="noopener">
+      <span>Ver ubicación en Maps</span>
     </a>
   </div>
 </section>
 
-<!-- ============ RSVP ============ -->
+<!-- ============================================================
+     RSVP
+============================================================ -->
 <section class="rsvp">
-  <h2 class="rsvp__title reveal" data-anim="fade-up">¿Nos acompañás?</h2>
-  <p class="rsvp__text reveal" data-anim="fade-up">Queremos saber si vas a estar en las tribunas para festejar con Benja.</p>
-  <a href="#" class="btn btn--primary reveal" id="rsvp-btn" data-anim="fade-up" target="_blank" rel="noopener">Confirmar asistencia</a>
+  <div class="rsvp__glow" aria-hidden="true"></div>
+  <h2 class="rsvp__title reveal" data-anim="up" style="--i:0">¿Nos acompañás?</h2>
+  <p class="rsvp__text reveal" data-anim="up" style="--i:1">Queremos saber si vas a estar en las tribunas para festejar con Benja.</p>
+  <a href="#" class="btn btn--primary reveal" id="rsvp-btn" data-anim="up" style="--i:2" target="_blank" rel="noopener">
+    <span>Confirmar asistencia</span>
+  </a>
 </section>
 
-<!-- ============ CIERRE ============ -->
-<section class="closing">
-  <img src="assets/logo_river.png" alt="Escudo de River Plate" class="closing__badge reveal" data-anim="scale-in">
-  <p class="closing__pretitle reveal" data-anim="fade-up">Te espero</p>
-  <p class="closing__name reveal" data-anim="fade-up">BENJA</p>
-  <p class="closing__number reveal" data-anim="fade-up">10 AÑOS</p>
+<!-- ============================================================
+     LA FORMACIÓN
+============================================================ -->
+<section class="squad" id="squad">
+  <header class="squad__head">
+    <p class="kicker reveal" data-anim="up" style="--i:0">Los cracks de Benja</p>
+    <h2 class="squad__title reveal" data-anim="up" style="--i:1">Mis ídolos</h2>
+  </header>
+
+  <div class="squad__grid">
+
+    <article class="card reveal" data-anim="card" data-tilt style="--i:0">
+      <div class="card__aura" aria-hidden="true"></div>
+      <div class="card__crest" aria-hidden="true"></div>
+      <div class="card__shine" aria-hidden="true"></div>
+      <div class="card__inner">
+        <img class="card__img" src="assets/beltran.png" alt="Santi Beltrán con la camiseta de River">
+        <div class="card__plate">
+          <span class="card__pos">Arquero</span>
+          <h3 class="card__name"><em>Santi</em>Beltrán</h3>
+        </div>
+      </div>
+    </article>
+
+    <article class="card reveal" data-anim="card" data-tilt style="--i:1">
+      <div class="card__aura" aria-hidden="true"></div>
+      <div class="card__crest" aria-hidden="true"></div>
+      <div class="card__shine" aria-hidden="true"></div>
+      <div class="card__inner">
+        <img class="card__img" src="assets/otamendi.png" alt="Nicolás Otamendi con la camiseta de River">
+        <div class="card__plate">
+          <span class="card__pos">Defensor</span>
+          <h3 class="card__name"><em>Nicolás</em>Otamendi</h3>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     CIERRE
+============================================================ -->
+<section class="closing" id="closing">
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+  <div class="closing__crest reveal" data-anim="crest" style="--i:0">
+    <span class="closing__glow" aria-hidden="true"></span>
+    <img src="assets/escudo.png" alt="Escudo de River Plate" class="closing__badge">
+  </div>
+  <p class="closing__pretitle reveal" data-anim="up" style="--i:1">Te espero</p>
+  <h2 class="closing__name" id="closing-name" aria-label="Benja">
+    <span>B</span><span>E</span><span>N</span><span>J</span><span>A</span>
+  </h2>
+  <p class="closing__number reveal" data-anim="up" style="--i:2">10 años</p>
 </section>
 
 <script src="script.js"></script>
