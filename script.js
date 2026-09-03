@@ -4,48 +4,58 @@ document.addEventListener('DOMContentLoaded', () => {
   // DATOS DE LA INVITACIÓN
   // ==========================================
   const eventData = {
-    name: "Benja",
-    age: 10,
-    date: "Martes 15 de Septiembre",
-    time: "17 a 20 hs",
-    location: "NEXXUS"
+    date: new Date('2026-09-15T17:00:00'),
+    time: "17 a 20 hs"
   };
 
-  const RSVP_URL = "PEGAR_AQUI_EL_LINK";
+  const RSVP_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdZtbfCnXRAVl5SjGp1CMkx5POYvTuu88JDr8kwDl5Y1GuKSw/viewform?usp=publish-editor";
   const MAP_URL = "https://maps.app.goo.gl/cZNeZmgbdPV4LDpB6?g_st=aw";
 
-  // ==========================================
-  // VOLCAR DATOS EN EL DOM
-  // ==========================================
-  document.getElementById('info-age').textContent = eventData.age;
-  document.getElementById('info-date').textContent = eventData.date;
   document.getElementById('info-time').textContent = eventData.time;
-  document.getElementById('info-location').textContent = eventData.location;
-  document.getElementById('location-name').textContent = eventData.location;
-
   document.getElementById('rsvp-btn').href = RSVP_URL;
   document.getElementById('info-location-btn').href = MAP_URL;
-  document.getElementById('map-btn').href = MAP_URL;
 
   // ==========================================
-  // IMÁGENES OPCIONALES: si falta un asset, ocultarlo sin romper el layout
+  // IMÁGENES OPCIONALES
   // ==========================================
   document.querySelectorAll('img').forEach((img) => {
-    img.addEventListener('error', () => {
-      img.style.display = 'none';
-    });
+    img.addEventListener('error', () => { img.style.display = 'none'; });
   });
 
   // ==========================================
-  // SCROLL SUAVE AL TOCAR EL INDICADOR DEL HERO
+  // SCROLL SUAVE
   // ==========================================
-  const scrollCue = document.getElementById('scroll-cue');
-  scrollCue.addEventListener('click', () => {
+  document.getElementById('scroll-cue').addEventListener('click', () => {
     document.getElementById('info').scrollIntoView({ behavior: 'smooth' });
   });
 
   // ==========================================
-  // REVEAL ON SCROLL — IntersectionObserver
+  // CUENTA REGRESIVA
+  // ==========================================
+  function actualizarContador() {
+    const diferencia = eventData.date - new Date();
+
+    if (diferencia <= 0) {
+      document.getElementById('countdown').innerHTML = '<p style="font-family: var(--font-display); font-size: 1.5rem;">¡Es hoy!</p>';
+      return;
+    }
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferencia / 1000) % 60);
+
+    document.getElementById('dias').textContent = String(dias).padStart(2, '0');
+    document.getElementById('horas').textContent = String(horas).padStart(2, '0');
+    document.getElementById('minutos').textContent = String(minutos).padStart(2, '0');
+    document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');
+  }
+
+  actualizarContador();
+  setInterval(actualizarContador, 1000);
+
+  // ==========================================
+  // REVEAL ON SCROLL
   // ==========================================
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealEls = document.querySelectorAll('.reveal');
@@ -63,45 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.2, rootMargin: '0px 0px -60px 0px' });
 
     revealEls.forEach((el) => observer.observe(el));
-  }
-
-  // ==========================================
-  // PARALLAX SUTIL — jugadores, número y escudo, con requestAnimationFrame
-  // ==========================================
-  if (!prefersReducedMotion) {
-    const heroPlayer = document.getElementById('hero-player');
-    const heroNumber = document.getElementById('hero-number');
-    const matchPlayer2 = document.getElementById('match-player-2');
-    const matchPlayer3 = document.getElementById('match-player-3');
-
-    let ticking = false;
-
-    function updateParallax() {
-      const y = window.scrollY;
-
-      if (heroPlayer) heroPlayer.style.transform = `translateY(${y * 0.08}px)`;
-      if (heroNumber) heroNumber.style.transform = `translate(-50%, calc(-50% + ${y * 0.04}px))`;
-
-      const matchSection = document.getElementById('match');
-      if (matchSection) {
-        const rect = matchSection.getBoundingClientRect();
-        const inView = rect.top < window.innerHeight && rect.bottom > 0;
-        if (inView) {
-          const progress = (window.innerHeight - rect.top) * 0.02;
-          if (matchPlayer2) matchPlayer2.style.transform = `translateY(${-progress}px)`;
-          if (matchPlayer3) matchPlayer3.style.transform = `translateY(${progress}px)`;
-        }
-      }
-
-      ticking = false;
-    }
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    }, { passive: true });
   }
 
 });

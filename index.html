@@ -9,17 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero">
-  <img src="assets/jugador-1.png" alt="Jugador de River, ídolo de Benja" class="hero__player" id="hero-player">
+  <div class="hero__bg" style="background-image: url(assets/fondo_river.jpg);"></div>
+  <div class="hero__overlay"></div>
 
   <div class="hero__content">
-    <img src="assets/PORTADA-CUMPLE-BENJA.png" alt="Escudo de River Plate" class="hero__badge" id="hero-badge">
-    <h1 class="hero__name">Benjamín cumple <span class="hero__accent">10 años</span></h1>
-    <p class="hero__tagline">Que empiece el partido.</p>
+    <img src="assets/te_invito_10.png" alt="Te invito a mi cumple" class="hero__invite">
   </div>
 
   <button class="hero__scroll" id="scroll-cue" aria-label="Bajar para ver la invitación">
@@ -29,51 +27,36 @@
 
 <!-- ============ INTRO ============ -->
 <section class="intro">
-  <p class="intro__line reveal" data-anim="fade-up">Hay partidos que se juegan en la cancha,</p>
-  <p class="intro__line intro__line--red reveal" data-anim="fade-up">y otros que se festejan con los amigos.</p>
+  <img src="assets/jugador_river1.jpg" alt="Jugador de River" class="intro__player intro__player--left">
+
+  <div class="intro__text">
+    <p class="intro__line reveal" data-anim="fade-up">Hay partidos que se juegan en la cancha,</p>
+    <p class="intro__line intro__line--red reveal" data-anim="fade-up">y otros que se festejan con los amigos.</p>
+  </div>
+
+  <img src="assets/jugador_river2.png" alt="Jugador de River" class="intro__player intro__player--right">
 </section>
 
-<!-- ============ DATOS DEL EVENTO ============ -->
+<!-- ============ CONVOCATORIA ============ -->
 <section class="info" id="info">
   <h2 class="info__title reveal" data-anim="fade-up">La convocatoria</h2>
+   <h2 class="info__title reveal" data-anim="fade-up">15/09</h2>
 
-  <div class="info__grid">
-    <div class="info__card reveal" data-anim="fade-up">
-      <span class="info__big" id="info-age">10</span>
-      <span class="info__label">años</span>
+
+  <div class="info__card reveal" data-anim="fade-up">
+    <div class="info__countdown" id="countdown">
+      <div class="info__block"><span id="dias">00</span><small>días</small></div>
+      <div class="info__block"><span id="horas">00</span><small>horas</small></div>
+      <div class="info__block"><span id="minutos">00</span><small>min</small></div>
+      <div class="info__block"><span id="segundos">00</span><small>seg</small></div>
     </div>
-    <div class="info__card reveal" data-anim="fade-up">
-      <span class="info__big info__big--sm" id="info-date">FECHA</span>
-      <span class="info__label">fecha</span>
-    </div>
-    <div class="info__card reveal" data-anim="fade-up">
-      <span class="info__big info__big--sm" id="info-time">HORA</span>
-      <span class="info__label">horario</span>
-    </div>
-    <a href="#" id="info-location-btn" class="info__card info__card--wide info__card--link reveal" data-anim="fade-up" target="_blank" rel="noopener">
-  <span class="info__big info__big--sm" id="info-location">LUGAR</span>
-  <span class="info__label">Ubicación</span>
-  <span class="info__hint">Click para ver la ubicación en Google Maps</span>
-</a>
+
+    <p class="info__time" id="info-time">HORA</p>
+
+    <a href="#" id="info-location-btn" class="btn btn--primary" target="_blank" rel="noopener">
+      Ver ubicación en Maps
+    </a>
   </div>
-</section>
-
-<!-- ============ SECCIÓN FUTBOLERA ============ -->
-<section class="match" id="match">
-  <div class="match__texture" aria-hidden="true"></div>
-  <img src="assets/jugador-2.png" alt="Jugador de River" class="match__player match__player--left" id="match-player-2">
-  <img src="assets/jugador-3.png" alt="Jugador de River" class="match__player match__player--right" id="match-player-3">
-  <div class="match__center reveal" data-anim="scale-in">
-    <span class="match__number">10</span>
-    <p class="match__caption">La camiseta que lo dice todo</p>
-  </div>
-</section>
-
-<!-- ============ FRASE CENTRAL ============ -->
-<section class="statement">
-  <p class="statement__text reveal" data-anim="fade-in">
-    10 años.<br><span class="statement__accent">10 veces</span> más fiesta.
-  </p>
 </section>
 
 <!-- ============ RSVP ============ -->
@@ -83,17 +66,9 @@
   <a href="#" class="btn btn--primary reveal" id="rsvp-btn" data-anim="fade-up" target="_blank" rel="noopener">Confirmar asistencia</a>
 </section>
 
-<!-- ============ UBICACIÓN ============ -->
-<section class="location">
-  <h2 class="location__title reveal" data-anim="fade-up">Dónde es la cancha</h2>
-  <p class="location__name reveal" data-anim="fade-up" id="location-name">LUGAR</p>
-  <p class="location__address reveal" data-anim="fade-up" id="location-address">Dirección a confirmar</p>
-  <a href="#" class="btn btn--outline reveal" id="map-btn" data-anim="fade-up" target="_blank" rel="noopener">Ver ubicación</a>
-</section>
-
 <!-- ============ CIERRE ============ -->
 <section class="closing">
-  <img src="assets/logo_river.png" alt="Escudo de River Plate" class="closing__badge reveal" data-anim="scale-in" id="closing-badge">
+  <img src="assets/logo_river.png" alt="Escudo de River Plate" class="closing__badge reveal" data-anim="scale-in">
   <p class="closing__pretitle reveal" data-anim="fade-up">Te espero</p>
   <p class="closing__name reveal" data-anim="fade-up">BENJA</p>
   <p class="closing__number reveal" data-anim="fade-up">10 AÑOS</p>
