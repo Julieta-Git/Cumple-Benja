@@ -26,6 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(pointer: fine)').matches;
 
+  // Variables del confeti: se declaran ACÁ ARRIBA porque la cuenta regresiva
+  // llama a lanzarConfeti() apenas carga la página (cuando la fecha ya pasó).
+  // Si se declaran más abajo, JS tira "Cannot access 'confetiBox' before
+  // initialization" y se corta TODO el resto del script.
+  const confetiBox = $('#confetti');
+  const colores = ['#E30613', '#FF2233', '#F2EFE9', '#FFFFFF', '#8E0410'];
+  let confetiLanzado = false;
+
   // ==========================================================
   // IMÁGENES QUE NO CARGAN → se esconden solas
   // ==========================================================
@@ -187,9 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================
   // CONFETI EN EL CIERRE
   // ==========================================================
-  const confetiBox = $('#confetti');
-  const colores = ['#E30613', '#FF2233', '#F2EFE9', '#FFFFFF', '#8E0410'];
-  let confetiLanzado = false;
 
   function lanzarConfeti(cantidad = 40) {
     if (reduced || !confetiBox) return;
